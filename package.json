@@ -1,0 +1,14 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "A sun and moon themed pomodoro timer assisting users with their studies",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Reactify-Tech",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "37.2.0"
+  }
+}

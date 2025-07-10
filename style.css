@@ -1,0 +1,257 @@
+/* Base styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    background-size: 400% 400%;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  
+  body.light {
+    background: linear-gradient(-45deg, #fff1e6, #ffe5b4, #ffd6a5, #ffb3c1);
+    animation: sunrise 20s ease infinite;
+    color: #2c1a1a;
+  }
+  
+  body.dark {
+    background: linear-gradient(-45deg, #0b0c2a, #1a1a40, #2c2c54, #3d3d6b);
+    animation: night 30s ease infinite;
+    color: #e0e0ff;
+  }
+  
+  @keyframes sunrise {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes night {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+  }
+  
+  /* Cloud Background */
+  #clouds {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* Base cloud */
+  .cloud {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(3px);
+    animation: moveClouds linear infinite;
+  }
+  
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  
+  .cloud::before {
+    width: 120%;
+    height: 100%;
+    left: -60%;
+    top: 20%;
+  }
+  
+  .cloud::after {
+    width: 80%;
+    height: 80%;
+    right: -40%;
+    top: 30%;
+  }
+  
+  /* Cloud instances with parallax animation speeds */
+  .cloud-1 {
+    width: 140px; height: 70px;
+    top: 15%;
+    left: -150px;
+    animation-duration: 60s;
+  }
+  
+  .cloud-2 {
+    width: 200px; height: 100px;
+    top: 30%;
+    left: -200px;
+    animation-duration: 80s;
+  }
+  
+  .cloud-3 {
+    width: 100px; height: 50px;
+    top: 45%;
+    left: -120px;
+    animation-duration: 90s;
+  }
+  
+  .cloud-4 {
+    width: 160px; height: 80px;
+    top: 60%;
+    left: -180px;
+    animation-duration: 110s;
+  }
+  
+  .cloud-5 {
+    width: 220px; height: 110px;
+    top: 10%;
+    left: -250px;
+    animation-duration: 130s;
+  }
+  
+  /* Keyframe animation */
+  @keyframes moveClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(120vw); }
+  }
+  
+  /* Disable clouds in dark mode */
+  body.dark #clouds {
+    display: none;
+  }
+  
+  
+  /* Stars (layered twinkle) */
+  #stars-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .star-layer {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: transparent;
+    box-shadow: 0 0 white; /* will be overwritten below */
+    animation: twinkle 3s infinite alternate;
+    opacity: 0.5;
+  }
+  .stars-small {
+    box-shadow: 100px 150px white, 200px 100px white, 300px 250px white, 400px 300px white, 150px 350px white;
+  }
+  .stars-medium {
+    box-shadow: 120px 80px white, 250px 220px white, 360px 180px white, 420px 90px white, 180px 290px white;
+    animation-duration: 5s;
+  }
+  .stars-large {
+    box-shadow: 140px 300px white, 220px 320px white, 380px 100px white, 260px 170px white;
+    animation-duration: 7s;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.6; }
+  }
+  body.light #stars-container {
+    display: none;
+  }
+  
+  /* UI Elements */
+  h1 {
+    font-size: 2.8em;
+    margin-top: 20px;
+  }
+  #mode {
+    font-size: 1.5em;
+    margin-top: 15px;
+  }
+  #ring-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+  }
+  .centered-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  .settings-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #fcd5ce;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #settings {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 300px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  #settings label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  #settings input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    font-size: 1em;
+  }
+  .theme-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0;
+  }
+  #apply-settings {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  /* Buttons */
+  .buttons button {
+    margin: 10px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    background: #ffd6a5;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .buttons button:hover {
+    background: #ffb3c1;
+  }
+  
+  /* Timer Ring */
+  #ring {
+    stroke: #ff6b81;
+    transition: stroke-dashoffset 0.5s linear;
+  }
+  
+#settings {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 0 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#settings.visible {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px;
+}

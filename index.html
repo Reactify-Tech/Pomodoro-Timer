@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+
+  <!-- Animated Background Layers -->
+  <div id="clouds">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+  </div>
+  
+  <div id="stars-container">
+    <div class="star-layer stars-small"></div>
+    <div class="star-layer stars-medium"></div>
+    <div class="star-layer stars-large"></div>
+  </div>
+
+  <!-- Title and Settings Toggle -->
+  <h1>Pomodoro Timer 🌅</h1>
+  <button id="toggle-settings" class="settings-btn">⚙️ Settings</button>
+
+  <!-- Settings Panel -->
+  <div id="settings">
+    <h2>Session Durations</h2>
+    <label>Work (min): <input type="number" id="work-duration" value="25" min="1" max="60" /></label>
+    <label>Break (min): <input type="number" id="break-duration" value="5" min="1" max="30" /></label>
+    <label class="theme-toggle-label">
+      <input type="checkbox" id="theme-toggle" />
+      <span id="theme-icon">🌞</span> Dark Mode
+    </label>
+    <button id="apply-settings">Apply</button>
+  </div>
+
+  <!-- Timer Display -->
+  <div id="mode">Work</div>
+  <div id="ring-container">
+    <svg id="progress-ring" width="200" height="200">
+      <circle id="ring-bg" cx="100" cy="100" r="90" stroke="#eee" stroke-width="15" fill="none"/>
+      <circle id="ring" cx="100" cy="100" r="90" stroke="#ff6b81" stroke-width="15" fill="none"
+        stroke-linecap="round" transform="rotate(-90 100 100)"
+        stroke-dasharray="565.48" stroke-dashoffset="565.48"/>
+    </svg>
+    <div id="timer" class="centered-text">25:00</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="buttons">
+    <button id="start">▶️ Start</button>
+    <button id="pause">⏸️ Pause</button>
+    <button id="reset">🔁 Reset</button>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
