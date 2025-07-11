@@ -16,7 +16,7 @@ body {
   body.dark {
     background: linear-gradient(-45deg, #0b0c2a, #1a1a40, #2c2c54, #3d3d6b);
     animation: night 30s ease infinite;
-    color: #e0e0ff;
+    color: #a2a2bb;
   }
   
   @keyframes sunrise {
