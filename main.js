@@ -4,7 +4,7 @@ const path = require('path');
 function createWindow() {
   const win = new BrowserWindow({
     width: 400,
-    height: 600,
+    height: 560,
     resizable: false,
     autoHideMenuBar: true,
     webPreferences: {
